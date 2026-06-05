@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山东东远精密机械有限公司 — 花岗石精密构件专业制造商</title>
+<style>
+  :root {
+    --primary: #1a1a2e;
+    --accent: #c0a060;
+    --accent2: #e8c87a;
+    --silver: #b8bec8;
+    --light-bg: #f4f5f7;
+    --white: #ffffff;
+    --text-main: #1e2535;
+    --text-sub: #5a6170;
+    --border: #dde1e9;
+    --card-bg: #ffffff;
+    --section-bg: #f8f9fb;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'PingFang SC','Microsoft YaHei',sans-serif; color:var(--text-main); background:#fff; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:1000;
+    background: rgba(18,22,40,0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    border-bottom: 1px solid rgba(192,160,96,0.25);
+  }
+  .nav-logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
+  .nav-logo-mark {
+    width:44px; height:44px; border-radius:4px;
+    background: transparent;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .nav-logo-mark img {
+    width:100%; height:100%; object-fit:contain;
+  }
+  .nav-logo-text { color:#fff; }
+  .nav-logo-text span { display:block; }
+  .nav-logo-text .cn { font-size:15px; font-weight:600; letter-spacing:1px; }
+  .nav-logo-text .en { font-size:10px; color:#c0a060; letter-spacing:2px; margin-top:1px; }
+  .nav-links { display:flex; gap:32px; list-style:none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.82); text-decoration:none;
+    font-size:14px; letter-spacing:1px; padding-bottom:4px;
+    border-bottom: 2px solid transparent;
+    transition: all .25s;
+  }
+  .nav-links a:hover { color:#e8c87a; border-bottom-color:#e8c87a; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(155deg, #0d1120 0%, #1a2040 40%, #0f1828 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 0 8%;
+    padding-top: 68px;
+  }
+  .hero-grid-bg {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(192,160,96,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(192,160,96,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position:absolute; right:-10%; top:10%;
+    width:600px; height:600px; border-radius:50%;
+    background: radial-gradient(circle, rgba(192,160,96,0.12) 0%, transparent 70%);
+  }
+  .hero-inner {
+    position:relative; z-index:2;
+    width:100%; display:flex; align-items:center;
+    gap:0;
+  }
+  .hero-content { flex:0 0 52%; }
+  .hero-logo-visual {
+    flex:0 0 auto;
+    margin-left:0;
+    display:flex; align-items:center; justify-content:center;
+    width:300px; height:300px;
+    border-radius:16px;
+    background: rgba(192,160,96,0.06);
+    border: 1px solid rgba(192,160,96,0.18);
+    backdrop-filter: blur(4px);
+    padding: 28px;
+    box-shadow: 0 0 80px rgba(192,160,96,0.12), 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .hero-logo-visual img {
+    width:100%; height:100%; object-fit:contain;
+    filter: drop-shadow(0 0 24px rgba(192,160,96,0.35));
+  }
+  @media (max-width:900px) {
+    .hero-logo-visual { display:none; }
+    .hero-content { flex:unset; }
+  }
+  .hero-eyebrow {
+    display:inline-flex; align-items:center; gap:10px;
+    background: rgba(192,160,96,0.12);
+    border: 1px solid rgba(192,160,96,0.35);
+    border-radius:20px; padding:6px 16px;
+    color:#c0a060; font-size:13px; letter-spacing:3px;
+    margin-bottom:28px;
+  }
+  .hero-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:#c0a060; }
+  .hero-title {
+    font-size: clamp(34px, 5vw, 60px);
+    font-weight: 800; color:#fff;
+    line-height:1.2; margin-bottom:12px;
+  }
+  .hero-title em {
+    font-style:normal;
+    background: linear-gradient(90deg, #c0a060, #e8c87a);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .hero-subtitle {
+    font-size:16px; color:rgba(255,255,255,0.55);
+    letter-spacing:4px; margin-bottom:20px; text-transform:uppercase;
+  }
+  .hero-desc { font-size:16px; color:rgba(255,255,255,0.7); line-height:1.9; margin-bottom:42px; max-width:560px; }
+  .hero-cta { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary {
+    padding:14px 34px; background:linear-gradient(135deg,#c0a060,#e8c87a);
+    color:#1a1a2e; font-size:15px; font-weight:700; border-radius:4px;
+    text-decoration:none; letter-spacing:1px; transition:.25s;
+    border:none; cursor:pointer;
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(192,160,96,0.4); }
+  .btn-outline {
+    padding:14px 34px; background:transparent;
+    border:1px solid rgba(192,160,96,0.5); color:#e8c87a;
+    font-size:15px; border-radius:4px; text-decoration:none;
+    letter-spacing:1px; transition:.25s;
+  }
+  .btn-outline:hover { background:rgba(192,160,96,0.1); }
+  .hero-stats {
+    position:absolute; bottom:52px; left:8%; right:8%;
+    display:flex; gap:0; z-index:2;
+    border:1px solid rgba(192,160,96,0.2);
+    border-radius:8px; background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(8px);
+    overflow:hidden;
+  }
+  .hero-stat {
+    flex:1; padding:22px 28px; text-align:center;
+    border-right:1px solid rgba(192,160,96,0.15);
+  }
+  .hero-stat:last-child { border-right:none; }
+  .hero-stat-num { font-size:28px; font-weight:800; color:#e8c87a; }
+  .hero-stat-label { font-size:12px; color:rgba(255,255,255,0.5); margin-top:4px; letter-spacing:1px; }
+
+  /* ===== SECTION ===== */
+  section { padding: 90px 8%; }
+  .section-header { text-align:center; margin-bottom:56px; }
+  .section-tag {
+    display:inline-block;
+    background:rgba(192,160,96,0.1);
+    color:#c0a060; font-size:12px; letter-spacing:3px;
+    padding:5px 16px; border-radius:14px;
+    border:1px solid rgba(192,160,96,0.3);
+    margin-bottom:14px; text-transform:uppercase;
+  }
+  .section-title { font-size:clamp(26px,3vw,38px); font-weight:800; color:var(--text-main); line-height:1.3; }
+  .section-title em { font-style:normal; color:#c0a060; }
+  .section-sub { font-size:15px; color:var(--text-sub); margin-top:12px; max-width:600px; margin-left:auto; margin-right:auto; line-height:1.8; }
+  .divider { width:48px; height:3px; background:linear-gradient(90deg,#c0a060,#e8c87a); border-radius:2px; margin:16px auto 0; }
+
+  /* ===== ABOUT ===== */
+  #about { background:#fff; }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .about-text h3 { font-size:22px; font-weight:700; color:var(--text-main); margin-bottom:16px; }
+  .about-text p { font-size:15px; color:var(--text-sub); line-height:2; margin-bottom:20px; }
+  .about-info-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:28px; }
+  .about-info-item { padding:16px; background:var(--section-bg); border-radius:6px; border-left:3px solid #c0a060; }
+  .about-info-item label { font-size:11px; color:#999; letter-spacing:1px; }
+  .about-info-item p { font-size:14px; color:var(--text-main); font-weight:600; margin:4px 0 0; }
+  .about-img-wrap { position:relative; }
+  .about-img-main {
+    width:100%; border-radius:8px; overflow:hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+    aspect-ratio:4/3; background:#e8ebf0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-img-main img { width:100%; height:100%; object-fit:cover; }
+  .about-badge {
+    position:absolute; bottom:-20px; right:-20px;
+    background:linear-gradient(135deg,#1a1a2e,#2a2d4a);
+    border:2px solid rgba(192,160,96,0.4); border-radius:8px;
+    padding:16px 22px; color:#fff; text-align:center;
+  }
+  .about-badge-num { font-size:28px; font-weight:800; color:#e8c87a; }
+  .about-badge-label { font-size:12px; color:rgba(255,255,255,0.6); margin-top:2px; }
+
+  /* ===== PRODUCTS ===== */
+  #products { background:var(--section-bg); }
+  .products-tabs { display:flex; justify-content:center; gap:0; margin-bottom:44px; border-radius:6px; overflow:hidden; border:1px solid var(--border); width:fit-content; margin-left:auto; margin-right:auto; }
+  .tab-btn { padding:12px 28px; font-size:14px; font-weight:500; cursor:pointer; border:none; background:#fff; color:var(--text-sub); transition:.2s; letter-spacing:1px; }
+  .tab-btn.active { background:linear-gradient(135deg,#c0a060,#e8c87a); color:#1a1a2e; font-weight:700; }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+  .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .product-card {
+    background:#fff; border-radius:8px; overflow:hidden;
+    border:1px solid var(--border);
+    transition:.3s; cursor:default;
+  }
+  .product-card:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,0.1); border-color:#c0a060; }
+  .product-card-img {
+    height:200px; background:var(--section-bg);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .product-card-img img { width:100%; height:100%; object-fit:cover; }
+  .product-card-body { padding:20px; }
+  .product-card-tag { font-size:11px; color:#c0a060; letter-spacing:2px; font-weight:600; margin-bottom:8px; }
+  .product-card-title { font-size:16px; font-weight:700; color:var(--text-main); margin-bottom:8px; }
+  .product-card-spec { font-size:13px; color:var(--text-sub); line-height:1.7; }
+  .product-badge {
+    display:inline-block; padding:3px 10px; border-radius:12px;
+    font-size:11px; font-weight:600; letter-spacing:1px; margin-top:10px;
+  }
+  .badge-core { background:rgba(192,160,96,0.12); color:#c0a060; border:1px solid rgba(192,160,96,0.3); }
+  .badge-hot { background:rgba(220,80,60,0.1); color:#d44; border:1px solid rgba(220,80,60,0.2); }
+  .badge-std { background:rgba(80,120,200,0.08); color:#5570c0; border:1px solid rgba(80,120,200,0.2); }
+  .badge-key { background:rgba(40,160,120,0.1); color:#287a60; border:1px solid rgba(40,160,120,0.25); }
+
+  /* ===== ADVANTAGES ===== */
+  .advantages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .adv-card { padding:32px; border-radius:8px; background:#fff; border:1px solid var(--border); text-align:center; }
+  .adv-icon { font-size:40px; margin-bottom:16px; }
+  .adv-title { font-size:16px; font-weight:700; color:var(--text-main); margin-bottom:10px; }
+  .adv-desc { font-size:14px; color:var(--text-sub); line-height:1.8; }
+
+  /* ===== CUSTOM ===== */
+  #custom { background:#fff; }
+  .custom-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+  .custom-card { padding:28px 32px; border-radius:8px; background:var(--section-bg); border:1px solid var(--border); }
+  .custom-card-icon { font-size:32px; margin-bottom:14px; }
+  .custom-card-title { font-size:17px; font-weight:700; color:var(--text-main); margin-bottom:8px; }
+  .custom-card-desc { font-size:14px; color:var(--text-sub); line-height:1.8; }
+  .flow-bar {
+    margin-top:52px; padding:28px 40px;
+    background:linear-gradient(135deg,#1a1a2e,#232845);
+    border-radius:10px; display:flex; align-items:center; gap:0;
+    flex-wrap:wrap; justify-content:center;
+  }
+  .flow-step { display:flex; align-items:center; gap:12px; }
+  .flow-num { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#c0a060,#e8c87a); color:#1a1a2e; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .flow-label { font-size:14px; color:#fff; font-weight:500; white-space:nowrap; }
+  .flow-arrow { margin:0 16px; color:#c0a060; font-size:18px; }
+
+  /* ===== APPLICATION ===== */
+  #application { background:var(--section-bg); }
+  .app-table-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+  thead tr { background:linear-gradient(135deg,#1a1a2e,#232845); }
+  thead th { padding:16px 20px; color:#e8c87a; font-size:13px; letter-spacing:1px; text-align:left; font-weight:600; }
+  tbody tr { border-bottom:1px solid var(--border); transition:.2s; }
+  tbody tr:hover { background:#fafbff; }
+  tbody td { padding:16px 20px; font-size:14px; color:var(--text-main); }
+  tbody td:first-child { font-weight:600; color:#1a1a2e; }
+  .tag-product { display:inline-block; background:rgba(192,160,96,0.1); color:#b09050; padding:2px 8px; border-radius:10px; font-size:12px; margin:1px 2px; }
+
+  /* ===== CAPACITY ===== */
+  #capacity { background:#fff; }
+  .capacity-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:64px; align-items:start; }
+  .capacity-list { }
+  .capacity-item { display:flex; align-items:flex-start; gap:16px; margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid var(--border); }
+  .capacity-item:last-child { border-bottom:none; }
+  .capacity-dot { width:8px; height:8px; background:#c0a060; border-radius:50%; margin-top:6px; flex-shrink:0; }
+  .capacity-item-content h4 { font-size:15px; font-weight:700; color:var(--text-main); margin-bottom:4px; }
+  .capacity-item-content p { font-size:14px; color:var(--text-sub); line-height:1.7; }
+  .capacity-metrics { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .metric-card { padding:24px; background:linear-gradient(135deg,#1a1a2e,#232845); border-radius:8px; text-align:center; border:1px solid rgba(192,160,96,0.2); }
+  .metric-num { font-size:28px; font-weight:800; color:#e8c87a; margin-bottom:6px; }
+  .metric-label { font-size:12px; color:rgba(255,255,255,0.6); letter-spacing:1px; }
+
+  /* ===== CONTACT ===== */
+  #contact { background:linear-gradient(155deg,#0d1120,#1a2040); padding:90px 8%; }
+  #contact .section-title { color:#fff; }
+  #contact .section-sub { color:rgba(255,255,255,0.6); }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:52px; }
+  .contact-info-list { display:flex; flex-direction:column; gap:20px; }
+  .contact-item { display:flex; align-items:flex-start; gap:16px; }
+  .contact-icon { width:44px; height:44px; background:rgba(192,160,96,0.15); border:1px solid rgba(192,160,96,0.3); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+  .contact-item-content h4 { font-size:13px; color:rgba(255,255,255,0.5); letter-spacing:1px; margin-bottom:4px; }
+  .contact-item-content p { font-size:16px; color:#fff; font-weight:600; }
+  .contact-map {
+    border-radius:10px; overflow:hidden;
+    border:1px solid rgba(192,160,96,0.25);
+    height:320px; background:rgba(255,255,255,0.04);
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:12px;
+  }
+  .contact-map p { color:rgba(255,255,255,0.5); font-size:14px; }
+  .contact-map a { color:#e8c87a; font-size:14px; text-decoration:none; padding:10px 24px; border:1px solid rgba(192,160,96,0.4); border-radius:4px; transition:.2s; }
+  .contact-map a:hover { background:rgba(192,160,96,0.1); }
+
+  /* ===== FOOTER ===== */
+  footer { background:#0a0d18; padding:32px 8%; text-align:center; border-top:1px solid rgba(192,160,96,0.15); }
+  footer p { color:rgba(255,255,255,0.4); font-size:13px; letter-spacing:1px; line-height:1.8; }
+  footer span { color:#c0a060; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:900px) {
+    .hero-stats { flex-direction:column; position:relative; bottom:auto; margin-top:48px; }
+    .hero-stat { border-right:none; border-bottom:1px solid rgba(192,160,96,0.15); }
+    .about-grid, .capacity-grid, .contact-grid { grid-template-columns:1fr; }
+    .products-grid { grid-template-columns:repeat(2,1fr); }
+    .advantages-grid { grid-template-columns:repeat(2,1fr); }
+    .custom-grid { grid-template-columns:1fr; }
+    .nav-links { display:none; }
+    .about-badge { position:relative; right:auto; bottom:auto; margin-top:16px; display:inline-block; }
+    .flow-arrow { display:none; }
+    .capacity-metrics { grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:600px) {
+    .products-grid { grid-template-columns:1fr; }
+    .advantages-grid { grid-template-columns:1fr; }
+    .capacity-metrics { grid-template-columns:1fr 1fr; }
+  }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal { opacity:0; transform:translateY(28px); transition:.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark"><img src="pptx_images/slide1_img1.png" alt="东远logo" /></div>
+    <div class="nav-logo-text">
+      <span class="cn">山东东远精密机械</span>
+      <span class="en">SHANDONG DONGYUAN PRECISION</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">公司简介</a></li>
+    <li><a href="#products">产品系列</a></li>
+    <li><a href="#custom">定制服务</a></li>
+    <li><a href="#application">应用领域</a></li>
+    <li><a href="#capacity">生产能力</a></li>
+    <li><a href="#contact">联系我们</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+  <div class="hero-content">
+    <div class="hero-eyebrow">花岗石精密构件 · 专业制造商</div>
+    <div class="hero-subtitle">PRECISION GRANITE COMPONENTS</div>
+    <h1 class="hero-title">
+      极致精度<br><em>铸就工业基石</em>
+    </h1>
+    <p class="hero-desc">
+      山东东远精密机械有限公司，位于"中国花岗石精密构件之乡"高唐县，专注花岗石精密测量工具与装备结构件的研发、生产与销售，产品远销欧美、日韩及东南亚30余国。
+    </p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary">查看产品</a>
+      <a href="#contact" class="btn-outline">联系我们</a>
+    </div>
+  </div><!-- /hero-content -->
+  <div class="hero-logo-visual">
+    <img src="pptx_images/slide1_img1.png" alt="山东东远精密机械logo" />
+  </div>
+  </div><!-- /hero-inner -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">0.001<small style="font-size:16px;"> mm</small></div>
+      <div class="hero-stat-label">最高加工精度</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5000<small style="font-size:16px;"> ㎡</small></div>
+      <div class="hero-stat-label">生产车间面积</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">000<small style="font-size:14px;"> 级</small></div>
+      <div class="hero-stat-label">最高精度等级</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">30<small style="font-size:16px;">+</small></div>
+      <div class="hero-stat-label">出口国家和地区</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-tag">ABOUT US</div>
+      <h2 class="section-title" style="text-align:left;margin-bottom:0;">公司<em>简介</em></h2>
+      <div class="divider" style="margin:14px 0 20px;"></div>
+      <p>
+        山东东远精密机械有限公司位于山东省聊城市高唐县赵寨子镇，坐落于"中国花岗石精密构件之乡"——高唐县花岗岩精密机械产业集群核心区。
+      </p>
+      <p>
+        公司专注于花岗石精密测量工具和装备结构件的研发、生产与销售，拥有完整的精密加工生产线和先进的检测设备。产品可根据客户需求定制各种规格和异形件，远销欧美、日韩及东南亚等国家和地区。
+      </p>
+      <div class="about-info-grid">
+        <div class="about-info-item">
+          <label>公司全称</label>
+          <p>山东东远精密机械有限公司</p>
+        </div>
+        <div class="about-info-item">
+          <label>所在地</label>
+          <p>山东省聊城市高唐县赵寨子镇</p>
+        </div>
+        <div class="about-info-item">
+          <label>行业类别</label>
+          <p>精密机械制造 · 通用设备制造</p>
+        </div>
+        <div class="about-info-item">
+          <label>主营材质</label>
+          <p>天然花岗石（印度黑、山西黑）</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-img-wrap reveal">
+      <div class="about-img-main">
+        <img src="pptx_images2/slide3_img4.png" alt="山东东远精密机械厂区" />
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">40,000+</div>
+        <div class="about-badge-label">厂区面积（㎡）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-header reveal">
+    <div class="section-tag">PRODUCTS</div>
+    <h2 class="section-title">产品<em>系列</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">两大核心系列，覆盖精密测量与装备结构全场景，支持来图定制各类规格</p>
+  </div>
+  <div class="products-tabs reveal">
+    <button class="tab-btn active" onclick="switchTab(this,'tab-measure')">精密测量量具系列</button>
+    <button class="tab-btn" onclick="switchTab(this,'tab-structure')">精密装备结构件系列</button>
+  </div>
+
+  <!-- 测量量具 -->
+  <div class="tab-panel active" id="tab-measure">
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="pptx_images2/slide4_img3.png" alt="花岗石精密测量平板" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">MEASURING TOOLS · 核心产品</div>
+          <div class="product-card-title">花岗石精密测量平板</div>
+          <div class="product-card-spec">规格：300×200×50mm ~ 4000×2500×500mm<br>精度：1级 / 0级 / 00级 / 000级<br>用作精密测量的基准平面，是各类检测工作的基础平台</div>
+          <span class="product-badge badge-core">核心产品</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="images/pingchi.png" alt="花岗石平尺" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">MEASURING TOOLS · 热销产品</div>
+          <div class="product-card-title">花岗石平尺</div>
+          <div class="product-card-spec">规格：400×60×25mm ~ 2000×300×100mm<br>用于检验工件的直线度和平面度<br>也可作为高精度测量基准</div>
+          <span class="product-badge badge-hot">热销产品</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="images/pingxinggui.png" alt="花岗石平行规" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">MEASURING TOOLS · 常规产品</div>
+          <div class="product-card-title">花岗石平行规</div>
+          <div class="product-card-spec">多种规格可选<br>用于检测两平面之间的平行度<br>配合千分表实现精密测量</div>
+          <span class="product-badge badge-std">常规产品</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="pptx_images2/slide5_img34.png" alt="花岗石直角尺方尺方箱" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">MEASURING TOOLS</div>
+          <div class="product-card-title">直角尺 / 方尺 / 方箱</div>
+          <div class="product-card-spec">多种规格，00级可选<br>用于检验工件垂直度、机床导轨精度<br>及工作台相互垂直度测量</div>
+          <span class="product-badge badge-std">高精度</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="pptx_images2/slide6_img21.png" alt="花岗石V型块弯板测量表座" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">MEASURING TOOLS</div>
+          <div class="product-card-title">V型块 / 弯板 / 测量表座</div>
+          <div class="product-card-spec">多种规格，弯板可定制角度<br>用于轴类零件支撑、特殊角度测量<br>配合千分表/百分表使用</div>
+          <span class="product-badge badge-std">可定制</span>
+        </div>
+      </div>
+      <div class="product-card" style="border:1px dashed rgba(192,160,96,0.4); background:rgba(192,160,96,0.03);">
+        <div class="product-card-img" style="background:rgba(192,160,96,0.06);">
+          <div style="text-align:center; padding:20px;">
+            <div style="font-size:40px;">🔧</div>
+            <div style="font-size:14px; color:#c0a060; margin-top:10px;">来图定制异形量具</div>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">CUSTOM ORDER</div>
+          <div class="product-card-title">来图定制异形量具</div>
+          <div class="product-card-spec">根据客户提供CAD图纸定制<br>满足各种个性化检测需求<br>可加工各类非标异形精密构件</div>
+          <span class="product-badge badge-core">定制专属</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 装备结构件 -->
+  <div class="tab-panel" id="tab-structure">
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="pptx_images2/slide7_img4.png" alt="花岗岩精密构件" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">STRUCTURE · 装备核心</div>
+          <div class="product-card-title">花岗岩精密构件</div>
+          <div class="product-card-spec">为各种精密装备提供稳定基础支撑<br>极佳的减震性能和热稳定性<br>可开槽、打孔、镶嵌金属件</div>
+          <span class="product-badge badge-key">装备核心</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="pptx_images2/slide7_img31.png" alt="花岗岩精密导轨" style="object-position:50% 60%;" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">STRUCTURE · 高精度</div>
+          <div class="product-card-title">花岗岩精密导轨</div>
+          <div class="product-card-spec">用于精密直线运动导向<br>表面精度高，摩擦力小<br>长期使用不变形</div>
+          <span class="product-badge badge-key">高精度</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="pptx_images2/slide7_img19.png" alt="花岗岩横梁" style="object-position:80% 50%;" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">STRUCTURE · 大型件</div>
+          <div class="product-card-title">花岗岩横梁</div>
+          <div class="product-card-spec">大型精密装备的横向支撑结构<br>定制化尺寸和孔位<br>满足不同装备安装需求</div>
+          <span class="product-badge badge-key">大型件</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="images/yzzhou.png" alt="花岗岩Y轴Z轴" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">STRUCTURE · 关键部件</div>
+          <div class="product-card-title">花岗岩 Y轴 / Z轴</div>
+          <div class="product-card-spec">精密设备重要运动轴系结构<br>高刚性、高稳定性<br>支持定制化孔位和安装面</div>
+          <span class="product-badge badge-key">关键部件</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="images/longmen.png" alt="花岗岩龙门" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">STRUCTURE · 大型件</div>
+          <div class="product-card-title">花岗岩龙门</div>
+          <div class="product-card-spec">大型龙门结构件<br>用于大型测量/加工设备<br>整体刚性好、形变小</div>
+          <span class="product-badge badge-key">大型件</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="images/qifu.png" alt="气浮网格线底座" />
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">STRUCTURE · 气浮专用</div>
+          <div class="product-card-title">气浮网格线底座</div>
+          <div class="product-card-spec">专为气浮平台设计<br>可开槽、打孔、镶嵌金属件<br>支持高精度气浮导轨安装</div>
+          <span class="product-badge badge-key">气浮专用</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 产品优势 -->
+  <div style="margin-top:52px;">
+    <div class="advantages-grid reveal">
+      <div class="adv-card">
+        <div class="adv-icon">🪨</div>
+        <div class="adv-title">天然高硬度</div>
+        <div class="adv-desc">采用优质印度黑、山西黑花岗石，结构致密，质地均匀，硬度高，强度大</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🌡️</div>
+        <div class="adv-title">低热膨胀系数</div>
+        <div class="adv-desc">热膨胀系数低，温度变化对精度影响极小，确保测量结果稳定可靠</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🔬</div>
+        <div class="adv-title">超高精度</div>
+        <div class="adv-desc">平面误差不超过0.001mm，可达000级超高精度，满足最苛刻的检测要求</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🛡️</div>
+        <div class="adv-title">不生锈·耐腐蚀</div>
+        <div class="adv-desc">天然花岗石不生锈、耐酸碱、耐磨，无需防锈处理，维护成本极低</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">📐</div>
+        <div class="adv-title">不磁化·不变形</div>
+        <div class="adv-desc">不受磁场干扰，不磁化、不变形，重负荷下长期保持高精度</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🎛️</div>
+        <div class="adv-title">优良减震性能</div>
+        <div class="adv-desc">天然花岗石具有优良减震性能，有效隔离振动，是精密装备结构件的理想材料</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM SERVICE -->
+<section id="custom">
+  <div class="section-header reveal">
+    <div class="section-tag">CUSTOM SERVICE</div>
+    <h2 class="section-title">定制化<em>加工服务</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">根据客户图纸或需求，提供全套花岗石精密构件定制加工，实现"量体裁衣"式服务</p>
+  </div>
+  <div class="custom-grid reveal">
+    <div class="custom-card">
+      <div class="custom-card-icon">📋</div>
+      <div class="custom-card-title">来图定制加工</div>
+      <div class="custom-card-desc">根据客户提供的CAD图纸，定制各类花岗石异形精密构件，满足特殊装备的结构需求</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-card-icon">〰️</div>
+      <div class="custom-card-title">T型槽 / V型槽加工</div>
+      <div class="custom-card-desc">在花岗石平台上精确加工各类定位槽，用于工件定位装夹，满足复杂结构的装配需求</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-card-icon">🔩</div>
+      <div class="custom-card-title">镶嵌金属件</div>
+      <div class="custom-card-desc">精密镶嵌金属螺纹套、销钉等，实现与其他部件的连接配合，确保装配精度</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-card-icon">🔮</div>
+      <div class="custom-card-title">精密研磨</div>
+      <div class="custom-card-desc">手工精磨和机械精磨双重保障，确保极高的平面度和表面光洁度，达到最高精度要求</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-card-icon">🧱</div>
+      <div class="custom-card-title">平台类结构件</div>
+      <div class="custom-card-desc">各种规格底座平台，可用于三坐标测量机、影像测量仪等高精度测量设备</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-card-icon">📏</div>
+      <div class="custom-card-title">导轨类构件</div>
+      <div class="custom-card-desc">直线导轨、V型导轨等，用于精密直线运动系统，满足各类精密装备的运动精度需求</div>
+    </div>
+  </div>
+  <div class="flow-bar reveal">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-label">需求沟通</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-label">图纸确认</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-label">工艺设计</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-label">生产加工</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-label">精密检测</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">6</div>
+      <div class="flow-label">包装发货</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION -->
+<section id="application">
+  <div class="section-header reveal">
+    <div class="section-tag">APPLICATION</div>
+    <h2 class="section-title">应用<em>领域</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">产品广泛应用于精密测量、半导体、光学、数控机床等高端制造领域</p>
+  </div>
+  <div class="app-table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>应用领域</th>
+          <th>具体应用设备</th>
+          <th>涉及产品</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>精密测量与检测</td>
+          <td>三坐标测量机、影像测量仪、轮廓仪、圆度仪等</td>
+          <td><span class="tag-product">平板</span><span class="tag-product">底座</span><span class="tag-product">导轨</span></td>
+        </tr>
+        <tr>
+          <td>光学与激光设备</td>
+          <td>光学平台、激光加工设备、精密光学仪器</td>
+          <td><span class="tag-product">底座</span><span class="tag-product">龙门</span><span class="tag-product">平台</span></td>
+        </tr>
+        <tr>
+          <td>半导体与电子</td>
+          <td>半导体检测设备、晶圆加工设备、PCB钻孔机</td>
+          <td><span class="tag-product">Y/Z轴</span><span class="tag-product">结构件</span></td>
+        </tr>
+        <tr>
+          <td>数控机床工业</td>
+          <td>CNC机床床身、精密磨床底座、电火花加工</td>
+          <td><span class="tag-product">横梁</span><span class="tag-product">底座</span><span class="tag-product">导轨</span></td>
+        </tr>
+        <tr>
+          <td>自动化与机器人</td>
+          <td>精密自动化装配线、机器人检测系统</td>
+          <td><span class="tag-product">平台</span><span class="tag-product">龙门</span><span class="tag-product">气浮底座</span></td>
+        </tr>
+        <tr>
+          <td>科研与实验室</td>
+          <td>高校和科研院所精密实验平台的隔震底座</td>
+          <td><span class="tag-product">平板</span><span class="tag-product">底座</span><span class="tag-product">量具</span></td>
+        </tr>
+        <tr>
+          <td>五金模具</td>
+          <td>模具检测与精密加工</td>
+          <td><span class="tag-product">平板</span><span class="tag-product">方箱</span><span class="tag-product">量具</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CAPACITY -->
+<section id="capacity">
+  <div class="section-header reveal">
+    <div class="section-tag">PRODUCTION CAPACITY</div>
+    <h2 class="section-title">生产能力<em>与设备</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="capacity-grid reveal">
+    <div class="capacity-list">
+      <div class="capacity-item">
+        <div class="capacity-dot"></div>
+        <div class="capacity-item-content">
+          <h4>大型精密石材加工设备</h4>
+          <p>配备先进大型精密石材加工设备，可加工最大5000×3000×400mm规格的超大尺寸构件</p>
+        </div>
+      </div>
+      <div class="capacity-item">
+        <div class="capacity-dot"></div>
+        <div class="capacity-item-content">
+          <h4>精密恒温加工车间</h4>
+          <p>专业恒温加工环境，消除温度变化对精度的影响，确保加工全程精度稳定</p>
+        </div>
+      </div>
+      <div class="capacity-item">
+        <div class="capacity-dot"></div>
+        <div class="capacity-item-content">
+          <h4>先进电子检测设备</h4>
+          <p>配备计算机数据处理系统，产品全部经计算机检测，确保每件产品符合最高标准</p>
+        </div>
+      </div>
+      <div class="capacity-item">
+        <div class="capacity-dot"></div>
+        <div class="capacity-item-content">
+          <h4>三个生产厂区 · 12个专业生产车间</h4>
+          <p>占地面积超60亩，涵盖机械加工、精密研磨、维修、计量、检测等专业车间，全面覆盖生产各环节</p>
+        </div>
+      </div>
+      <div class="capacity-item">
+        <div class="capacity-dot"></div>
+        <div class="capacity-item-content">
+          <h4>质量方针</h4>
+          <p>以质量求生存，以效益求发展 — 持续的产能提升和质量投入</p>
+        </div>
+      </div>
+    </div>
+    <div class="capacity-metrics">
+      <div class="metric-card">
+        <div class="metric-num">000级</div>
+        <div class="metric-label">最高精度等级</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">0.001</div>
+        <div class="metric-label">平面误差（mm）</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">5000mm</div>
+        <div class="metric-label">最大加工尺寸</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">5000万+</div>
+        <div class="metric-label">年产能（元）</div>
+      </div>
+      <div class="metric-card" style="grid-column:1/-1;">
+        <div class="metric-num">30+ 国家和地区</div>
+        <div class="metric-label">远销欧美、日韩、东南亚</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:48px; text-align:center; reveal">
+    <img src="pptx_images2/slide10_img2.png" alt="生产车间" style="max-width:100%; border-radius:10px; box-shadow:0 8px 40px rgba(0,0,0,0.1);" />
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-tag" style="background:rgba(192,160,96,0.15); color:#e8c87a;">CONTACT US</div>
+    <h2 class="section-title" style="color:#fff;">联系<em>我们</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">欢迎各界朋友莅临参观指导，期待与您合作</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info-list">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-item-content">
+          <h4>公司地址</h4>
+          <p>山东省聊城市高唐县赵寨子镇丁岗工业园内聊禹路以西</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-item-content">
+          <h4>联系电话</h4>
+          <p>15801614229</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div class="contact-item-content">
+          <h4>公司邮箱</h4>
+          <p>784881478@qq.com</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🏭</div>
+        <div class="contact-item-content">
+          <h4>地理位置</h4>
+          <p>"中国花岗石精密构件之乡" · 高唐县花岗岩精密机械产业集群核心区</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map">
+      <div style="font-size:48px; margin-bottom:8px;">🗺️</div>
+      <p>山东省聊城市高唐县赵寨子镇</p>
+      <p style="margin-bottom:12px; font-size:12px; color:rgba(255,255,255,0.4);">丁岗工业园 · 聊禹路以西</p>
+      <a href="https://map.baidu.com/search/山东省聊城市高唐县赵寨子镇" target="_blank">在百度地图中查看</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><span>山东东远精密机械有限公司</span> · 花岗石精密构件专业制造商</p>
+  <p style="margin-top:6px;">© 2024 SHANDONG DONGYUAN PRECISION MACHINERY CO., LTD. · All Rights Reserved</p>
+  <p style="margin-top:4px;">地址：山东省聊城市高唐县赵寨子镇丁岗工业园 · 电话：<span>15801614229</span></p>
+</footer>
+
+<script>
+// Tab switch
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// Nav active link
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? '#e8c87a' : '';
+    a.style.borderBottomColor = a.getAttribute('href') === '#'+current ? '#e8c87a' : '';
+  });
+}, {passive:true});
+</script>
+</body>
+</html>
